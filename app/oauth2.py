@@ -16,9 +16,9 @@ class Settings(BaseModel):
     authjwt_refresh_cookie_key: str = 'refresh_token'
     authjwt_cookie_csrf_protect: bool = False
     authjwt_public_key: str = base64.b64decode(
-        settings.JWT_PUBLIC_KEY).decode('utf-8')
+        settings.JWT_PUBLIC_KEY).decode('latin-1')
     authjwt_private_key: str = base64.b64decode(
-        settings.JWT_PRIVATE_KEY).decode('utf-8')
+        settings.JWT_PRIVATE_KEY).decode('latin-1')
 
 @AuthJWT.load_config
 def get_config():
