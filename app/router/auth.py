@@ -53,7 +53,7 @@ def login(payload: schemas.LoginUserSchema, response: Response, Authorize: AuthJ
                         REFRESH_TOKEN_EXPIRES_IN * 60, REFRESH_TOKEN_EXPIRES_IN * 60, '/', None, False, True, 'lax')
     response.set_cookie('logged_in', 'True', ACCESS_TOKEN_EXPIRES_IN * 60,
                         ACCESS_TOKEN_EXPIRES_IN * 60, '/', None, False, False, 'lax')
-    return {'status': 'success', 'access_token': access_token}
+    return {'status': 'success', 'access_token': access_token,'user':user}
 
 @router.get('/refresh')
 def refresh_token(response: Response, Authorize: AuthJWT = Depends()):
